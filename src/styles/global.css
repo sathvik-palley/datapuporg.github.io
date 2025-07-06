@@ -144,6 +144,15 @@
   color: var(--color-text-secondary);
 }
 
+.max-width-prose {
+  max-width: 65ch;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Flex */
 .flex {
   display: flex;
