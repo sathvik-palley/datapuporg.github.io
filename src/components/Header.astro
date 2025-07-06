@@ -8,8 +8,9 @@ const navItems = [
 ---
 
 <header class="header">
-  <nav class="container">
-    <div class="nav-content">
+  <div class="container">
+    <nav class="floating-nav">
+      <div class="nav-content">
       <a href="/" class="logo-link">
         <img src="/logo.svg" alt="DataPup" width="32" height="32" class="logo-svg" />
         <span class="logo-text">DataPup</span>
@@ -45,30 +46,59 @@ const navItems = [
           <path d="M3 12h18M3 6h18M3 18h18"/>
         </svg>
       </button>
-    </div>
-  </nav>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <style>
   .header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    z-index: 40;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.8);
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1rem 0;
+    pointer-events: none;
   }
   
-  html.dark .header {
-    background-color: rgba(17, 24, 39, 0.8);
+  .header .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .floating-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    padding: 0.5rem 1.5rem;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+  }
+  
+  html.dark .floating-nav {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .floating-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  
+  html.dark .floating-nav:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   }
   
   .nav-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 64px;
+    gap: 2rem;
+    height: auto;
   }
   
   .logo-link {
@@ -76,12 +106,14 @@ const navItems = [
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--color-text);
+    transition: transform 0.2s ease;
   }
   
   .logo-link:hover {
     color: var(--color-text);
+    transform: scale(1.05);
   }
   
   .logo-svg {
@@ -101,8 +133,9 @@ const navItems = [
   .nav-links {
     display: none;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
+    margin: 0;
   }
   
   @media (min-width: 768px) {
@@ -114,14 +147,18 @@ const navItems = [
   .nav-link {
     color: var(--color-text-secondary);
     font-weight: 500;
-    transition: color 0.2s ease;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
   }
   
   .nav-link:hover {
     color: var(--color-primary);
+    background-color: rgba(170, 178, 255, 0.1);
   }
   
   .external-icon {
@@ -129,23 +166,24 @@ const navItems = [
   }
   
   .theme-toggle-nav {
-    padding: 0.375rem 0.625rem;
-    border-radius: 0.5rem;
-    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(170, 178, 255, 0.1);
     border: none;
     cursor: pointer;
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     transition: all 0.2s ease;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
   
   .theme-toggle-nav:hover {
-    background-color: var(--color-bg-secondary);
-    transform: scale(1.1);
+    background-color: rgba(170, 178, 255, 0.2);
+    transform: rotate(15deg) scale(1.1);
   }
   
   .theme-icon {
@@ -173,11 +211,21 @@ const navItems = [
   .mobile-menu-toggle {
     display: flex;
     padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: transparent;
+    border-radius: 9999px;
+    background-color: rgba(170, 178, 255, 0.1);
     border: none;
     cursor: pointer;
-    color: var(--color-text-secondary);
+    color: var(--color-text);
+    transition: all 0.2s ease;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mobile-menu-toggle:hover {
+    background-color: rgba(170, 178, 255, 0.2);
+    transform: scale(1.1);
   }
   
   @media (min-width: 768px) {
