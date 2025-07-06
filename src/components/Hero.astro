@@ -15,8 +15,8 @@ import '../styles/global.css';
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge glass animate-fade-in">
-        <span class="badge-icon">👨‍💻</span>
-        <span>Built by engineers from Tesla, Meta, Microsoft & Amazon</span>
+        <span class="badge-icon">🚀</span>
+        <span>Open Source & Free</span>
       </div>
       
       <h1 class="hero-title animate-fade-in">
@@ -73,6 +73,12 @@ import '../styles/global.css';
             </div>
           </div>
         </div>
+      </div>
+      
+      <!-- Team credentials badge -->
+      <div class="credentials-badge glass animate-fade-in">
+        <span class="badge-icon">👨‍💻</span>
+        <span>Built by engineers from Tesla, Meta, Microsoft & Amazon</span>
       </div>
     </div>
   </div>
@@ -290,6 +296,7 @@ import '../styles/global.css';
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
   }
   
   .preview-window {
@@ -419,9 +426,21 @@ import '../styles/global.css';
     animation-delay: 0.6s;
   }
   
+  .credentials-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    animation-delay: 0.7s;
+  }
+  
   @media (max-width: 768px) {
     .hero {
-      padding: 4rem 0;
+      padding: 5.5rem 0 3rem;
     }
     
     .hero-cta {

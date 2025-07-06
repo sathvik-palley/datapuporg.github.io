@@ -16,7 +16,7 @@ const navItems = [
         <span class="logo-text">DataPup</span>
       </a>
       
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         {navItems.map(item => (
           <li>
             <a 
@@ -36,16 +36,18 @@ const navItems = [
         ))}
       </ul>
       
-      <button class="theme-toggle-nav" aria-label="Toggle theme">
-        <span class="theme-icon sun-icon">☀️</span>
-        <span class="theme-icon moon-icon">🌙</span>
-      </button>
-      
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+      <div class="nav-actions">
+        <button class="theme-toggle-nav" aria-label="Toggle theme">
+          <span class="theme-icon sun-icon">☀️</span>
+          <span class="theme-icon moon-icon">🌙</span>
+        </button>
+        
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" id="mobile-menu-toggle">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 12h18M3 6h18M3 18h18"/>
         </svg>
-      </button>
+        </button>
+      </div>
       </div>
     </nav>
   </div>
@@ -77,6 +79,15 @@ const navItems = [
     padding: 0.5rem 1.5rem;
     pointer-events: auto;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 90%;
+  }
+  
+  @media (min-width: 768px) {
+    .floating-nav {
+      width: auto;
+      max-width: none;
+    }
   }
   
   html.dark .floating-nav {
@@ -99,6 +110,7 @@ const navItems = [
     align-items: center;
     gap: 2rem;
     height: auto;
+    justify-content: space-between;
   }
   
   .logo-link {
@@ -141,6 +153,61 @@ const navItems = [
   @media (min-width: 768px) {
     .nav-links {
       display: flex;
+    }
+  }
+  
+  .nav-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  @media (max-width: 767px) {
+    .floating-nav {
+      padding: 0.5rem 1rem;
+    }
+    
+    .floating-nav.menu-open {
+      border-radius: 1.5rem;
+      padding: 1rem 1.5rem;
+    }
+    
+    .nav-content {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      padding: 1rem 0;
+      margin-top: 0.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    }
+    
+    html.dark .nav-links {
+      background: rgba(30, 30, 30, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links.show {
+      display: flex;
+    }
+    
+    .nav-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: auto;
     }
   }
   
@@ -247,5 +314,32 @@ const navItems = [
     html.classList.remove(currentTheme);
     html.classList.add(newTheme);
     localStorage.setItem('theme', newTheme);
+  });
+  
+  // Mobile menu toggle functionality
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const floatingNav = document.querySelector('.floating-nav');
+  
+  mobileMenuToggle?.addEventListener('click', () => {
+    navLinks?.classList.toggle('show');
+    floatingNav?.classList.toggle('menu-open');
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!floatingNav?.contains(e.target)) {
+      navLinks?.classList.remove('show');
+      floatingNav?.classList.remove('menu-open');
+    }
+  });
+  
+  // Close mobile menu when clicking on a link
+  const navLinkElements = document.querySelectorAll('.nav-link');
+  navLinkElements.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks?.classList.remove('show');
+      floatingNav?.classList.remove('menu-open');
+    });
   });
 </script>
