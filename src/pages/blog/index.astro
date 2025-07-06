@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Author from '../../components/Author.astro';
 import { getCollection } from 'astro:content';
+import authors from '../../data/authors.json';
 
 // Get all blog posts
 const posts = await getCollection('blog');
@@ -31,7 +33,7 @@ const sortedPosts = posts.sort((a, b) => {
       ) : (
         <div class="blog-grid">
           {sortedPosts.map((post) => {
-            const { title, description, pubDate, tags } = post.data;
+            const { title, description, pubDate, tags, author = 'datapup-team' } = post.data;
             const postDate = new Date(pubDate);
             const formattedDate = postDate.toLocaleDateString('en-US', { 
               year: 'numeric', 
@@ -46,6 +48,9 @@ const sortedPosts = posts.sort((a, b) => {
                   <p class="blog-card-description">{description}</p>
                   
                   <div class="blog-card-meta">
+                    <div class="blog-card-author">
+                      <Author authorId={author} />
+                    </div>
                     <time datetime={postDate.toISOString()} class="text-sm text-muted">
                       {formattedDate}
                     </time>
@@ -164,7 +169,15 @@ const sortedPosts = posts.sort((a, b) => {
   }
   
   .blog-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     margin-bottom: 1rem;
+  }
+  
+  .blog-card-author {
+    display: flex;
+    align-items: center;
   }
   
   .blog-card-tags {

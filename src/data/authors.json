@@ -1,0 +1,23 @@
+{
+  "datapup-team": {
+    "name": "DataPup Team",
+    "avatar": "/images/authors/datapup-team.png",
+    "bio": "The core team behind DataPup, building the database client that doesn't bite",
+    "twitter": "datapup",
+    "github": "DataPupOrg"
+  },
+  "sahith-vibudhi": {
+    "name": "Sahith Vibudhi",
+    "avatar": "/images/authors/sahith-vibudhi.jpg",
+    "bio": "Community Manager & Founding Engineer at Fintech YC startup. Previously at Tesla and Amazon",
+    "twitter": "sahithvibudhi",
+    "github": "sahithvibudhi"
+  },
+  "krishna-chaitanya": {
+    "name": "Krishna Chaitanya Balusu",
+    "avatar": "/images/authors/krishna-chaitanya.jpg",
+    "bio": "Community Manager & Software Engineer at Meta. Previously at Microsoft",
+    "twitter": "krishnachaitanya",
+    "github": "krishnachaitanya"
+  }
+}

@@ -2,6 +2,7 @@
 title: Getting Started with DataPup - Your First Connection
 description: Learn how to set up DataPup and connect to your first database in under 5 minutes.
 pubDate: "2024-01-20"
+author: sahith-vibudhi
 tags: [tutorial, getting-started]
 ---
 
