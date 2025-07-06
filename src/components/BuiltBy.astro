@@ -1,0 +1,122 @@
+---
+const companies = [
+  { name: 'Tesla', logo: '🚗' },
+  { name: 'Meta', logo: '👍' },
+  { name: 'Microsoft', logo: '🪟' },
+  { name: 'Amazon', logo: '📦' }
+];
+---
+
+<section class="built-by-section py-20">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">
+        <span class="gradient-text">For Developers, By Developers</span>
+      </h2>
+      <p class="text-lg text-muted max-width-prose mx-auto">
+        DataPup is crafted by engineers who've built products at scale. 
+        We've felt the pain of clunky database tools at big tech companies, 
+        so we built something better.
+      </p>
+    </div>
+    
+    <div class="companies-grid">
+      {companies.map((company) => (
+        <div class="company-card">
+          <span class="company-logo">{company.logo}</span>
+          <span class="company-name">{company.name}</span>
+        </div>
+      ))}
+    </div>
+    
+    <div class="team-message">
+      <p class="text-center text-muted">
+        Our team brings experience from building mission-critical systems at these companies.
+        <br />
+        Now we're using that expertise to create the database tools we wish we had.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .built-by-section {
+    position: relative;
+    background: var(--color-bg-secondary);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .company-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    background: var(--color-card);
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+  }
+  
+  .company-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+  }
+  
+  html.dark .company-card:hover {
+    box-shadow: 0 12px 24px rgba(170, 178, 255, 0.1);
+  }
+  
+  .company-logo {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .company-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 1.125rem;
+  }
+  
+  .team-message {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .team-message p {
+    line-height: 1.8;
+  }
+  
+  @media (max-width: 768px) {
+    .companies-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .company-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

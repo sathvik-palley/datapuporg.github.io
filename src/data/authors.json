@@ -9,7 +9,8 @@
   "sahith-vibudhi": {
     "name": "Sahith Vibudhi",
     "avatar": "/images/authors/sahith-vibudhi.jpg",
-    "bio": "Community Manager & Founding Engineer at Fintech YC startup. Previously at Tesla and Amazon",
+    "bio": "Community Manager & Founding Engineer. Previously at Tesla and Amazon",
+    "company": "Previously Tesla & Amazon",
     "twitter": "sahithvibudhi",
     "github": "sahithvibudhi"
   },
@@ -17,6 +18,7 @@
     "name": "Krishna Chaitanya Balusu",
     "avatar": "/images/authors/krishna-chaitanya.jpg",
     "bio": "Community Manager & Software Engineer at Meta. Previously at Microsoft",
+    "company": "Meta, Previously Microsoft",
     "twitter": "krishnachaitanya",
     "github": "krishnachaitanya"
   }
