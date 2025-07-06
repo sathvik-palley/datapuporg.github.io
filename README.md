@@ -1,47 +1,95 @@
-# Astro Starter Kit: Minimal
+# DataPup Website
 
-```sh
-npm create astro@latest -- --template minimal
+The official website and blog for DataPup - a modern, cross-platform database client.
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 📁 Project Structure
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
+```
+datapup.dev/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Reusable components
+│   ├── content/        # Blog posts (Markdown)
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Route pages
+│   └── styles/         # Global styles
+├── public/             # Static assets
+└── .github/            # GitHub Actions workflows
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Framework**: [Astro](https://astro.build)
+- **Styling**: CSS with CSS Custom Properties
+- **Deployment**: GitHub Pages
+- **Content**: Markdown with frontmatter
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📝 Adding Blog Posts
 
-## 🧞 Commands
+1. Create a new `.md` file in `src/content/blog/`
+2. Add frontmatter:
 
-All commands are run from the root of the project, from a terminal:
+```markdown
+---
+slug: my-post-slug
+title: My Post Title
+description: A brief description
+pubDate: 2024-01-01
+tags: [tag1, tag2]
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Your content here...
+```
 
-## 👀 Want to learn more?
+## 🚀 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The site automatically deploys to GitHub Pages when you push to the `main` branch.
+
+### Manual Deployment
+
+```bash
+npm run build
+# The built site is in the `dist/` directory
+```
+
+### Custom Domain
+
+1. Add a `CNAME` file to the `public/` directory with your domain
+2. Configure your DNS to point to GitHub Pages
+
+## 🎨 Customization
+
+### Colors
+
+Edit CSS variables in `src/layouts/BaseLayout.astro`:
+
+```css
+:root {
+  --color-primary: #3b82f6;
+  --color-bg: #ffffff;
+  /* ... */
+}
+```
+
+### Components
+
+All components are in `src/components/` and can be modified as needed.
+
+## 📄 License
+
+MIT License - see LICENSE file for details.

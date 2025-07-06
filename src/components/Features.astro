@@ -1,0 +1,215 @@
+---
+const features = [
+  {
+    icon: '⚡',
+    title: 'Blazing Fast',
+    description: 'Optimized for ClickHouse performance. Query millions of rows in milliseconds.',
+    gradient: 'from-purple-400 to-pink-400'
+  },
+  {
+    icon: '🎨',
+    title: 'Beautiful Interface',
+    description: 'A modern UI that makes database work a joy. Dark mode included.',
+    gradient: 'from-blue-400 to-cyan-400'
+  },
+  {
+    icon: '🔍',
+    title: 'Smart Query Editor',
+    description: 'Syntax highlighting, auto-completion, and query optimization suggestions.',
+    gradient: 'from-green-400 to-emerald-400'
+  },
+  {
+    icon: '📊',
+    title: 'Data Visualization',
+    description: 'Transform your data into insights with built-in charts and exports.',
+    gradient: 'from-orange-400 to-red-400'
+  },
+  {
+    icon: '🤝',
+    title: 'Open Source',
+    description: 'Free forever. Contribute features, report bugs, or fork it yourself.',
+    gradient: 'from-indigo-400 to-purple-400'
+  },
+  {
+    icon: '🔐',
+    title: 'Secure by Design',
+    description: 'Your data stays on your machine. No telemetry, no tracking.',
+    gradient: 'from-pink-400 to-rose-400'
+  }
+];
+---
+
+<section id="features" class="py-20 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-var(--color-bg-secondary) to-transparent opacity-50"></div>
+  
+  <div class="container relative">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4 gradient-text">Features that Empower</h2>
+      <p class="text-lg text-muted max-width-prose mx-auto">
+        Built for developers who demand speed, beauty, and simplicity in their database tools.
+      </p>
+    </div>
+    
+    <div class="features-grid">
+      {features.map((feature, index) => (
+        <div 
+          class="feature-card" 
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="feature-icon-wrapper">
+            <div class={`feature-icon-gradient bg-gradient-to-br ${feature.gradient}`}></div>
+            <div class="feature-icon">{feature.icon}</div>
+          </div>
+          
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+          
+          <div class="feature-hover-effect"></div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mt-16">
+      <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-var(--color-primary) to-var(--color-accent) text-white font-medium">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        Free and Open Source Forever
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .feature-card {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(170, 178, 255, 0.3);
+    border-color: transparent;
+  }
+  
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+  
+  .feature-hover-effect {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at center, var(--color-primary), transparent 70%);
+    opacity: 0;
+    filter: blur(60px);
+    transition: opacity var(--transition-slow);
+    pointer-events: none;
+  }
+  
+  .feature-card:hover .feature-hover-effect {
+    opacity: 0.1;
+  }
+  
+  .feature-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-icon-gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    opacity: 0.2;
+    filter: blur(20px);
+    transform: scale(1.2);
+  }
+  
+  .feature-icon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: var(--color-bg-secondary);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+  
+  .feature-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .max-width-prose {
+    max-width: 65ch;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .feature-card {
+      padding: 2rem;
+    }
+  }
+</style>
