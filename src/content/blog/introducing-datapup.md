@@ -40,13 +40,9 @@ View your query results in multiple formats:
 - Role-based access control
 - No data ever leaves your machine
 
-## Built with Modern Technology
+## Open Source and Community Driven
 
-DataPup is built using:
-- **Electron** for cross-platform desktop support
-- **React** for a responsive, modern UI
-- **TypeScript** for type safety and better developer experience
-- **SQLite** for local storage and offline capabilities
+DataPup is proudly open source, built by developers for developers. We believe in transparency, community involvement, and creating tools that solve real problems. Join our growing community of contributors who are shaping the future of database management.
 
 ## What's Next?
 

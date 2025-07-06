@@ -33,20 +33,18 @@ After installation, launch DataPup. You'll be greeted with the connection manage
 
 Click the "New Connection" button and select your database type:
 
-- PostgreSQL
-- MySQL
-- SQLite
-- MariaDB
+- ClickHouse (currently supported)
+- More databases coming soon!
 
 ### Step 3: Enter Connection Details
 
-For this example, let's connect to a PostgreSQL database:
+For this example, let's connect to a ClickHouse database:
 
 ```
 Host: localhost
-Port: 5432
-Database: myapp_db
-Username: myuser
+Port: 8123
+Database: default
+Username: default
 Password: ********
 ```
 

@@ -52,11 +52,11 @@ DataPup is built for speed:
 ### 3. Multi-Database, Single Experience
 
 While other tools specialize in one database type, DataPup provides a consistent experience across:
-- PostgreSQL
-- MySQL/MariaDB
-- SQLite
-- MongoDB (coming soon)
-- Redis (planned)
+- ClickHouse (current focus)
+- PostgreSQL (coming soon)
+- MySQL/MariaDB (planned)
+- SQLite (planned)
+- More databases on the roadmap
 
 ### 4. Developer-Friendly Features
 
