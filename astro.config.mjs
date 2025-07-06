@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://datapup.dev',
+  site: 'https://datapuporg.github.io',
+  base: '/DataPupOrg',
   output: 'static',
   build: {
     format: 'directory'
