@@ -36,13 +36,8 @@ const navItems = [
       </ul>
       
       <button class="theme-toggle-nav" aria-label="Toggle theme">
-        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M10 15a5 5 0 100-10 5 5 0 000 10z"/>
-          <path d="M10 0v3M10 17v3M0 10h3M17 10h3M2.93 2.93l2.12 2.12M14.95 14.95l2.12 2.12M2.93 17.07l2.12-2.12M14.95 5.05l2.12-2.12"/>
-        </svg>
-        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-        </svg>
+        <span class="theme-icon sun-icon">☀️</span>
+        <span class="theme-icon moon-icon">🌙</span>
       </button>
       
       <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -134,22 +129,33 @@ const navItems = [
   }
   
   .theme-toggle-nav {
-    padding: 0.5rem;
+    padding: 0.375rem 0.625rem;
     border-radius: 0.5rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: var(--color-text-secondary);
     transition: all 0.2s ease;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
   }
   
   .theme-toggle-nav:hover {
     background-color: var(--color-bg-secondary);
-    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .sun-icon {
-    display: block;
+    display: flex;
   }
   
   .moon-icon {
@@ -161,7 +167,7 @@ const navItems = [
   }
   
   html.dark .moon-icon {
-    display: block;
+    display: flex;
   }
   
   .mobile-menu-toggle {
