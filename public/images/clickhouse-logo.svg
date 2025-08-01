@@ -1,0 +1,11 @@
+<svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- ClickHouse Logo -->
+    <path d="M8 4h4v4H8V4zm0 6h4v4H8v-4zm0 6h4v4H8v-4zm0 6h4v4H8v-4zM14 4h4v4h-4V4zm0 6h4v4h-4v-4zm0 6h4v4h-4v-4zm0 6h4v4h-4v-4z"/>
+    <path d="M2 4h4v4H2V4zm0 6h4v4H2v-4zm0 6h4v4H2v-4zm0 6h4v4H2v-4z"/>
+  </g>
+  <!-- ClickHouse Text -->
+  <g fill="currentColor" font-family="Arial, sans-serif" font-size="10" font-weight="600">
+    <text x="26" y="12">ClickHouse</text>
+  </g>
+</svg>
