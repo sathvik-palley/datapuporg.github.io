@@ -1,5 +1,5 @@
 ---
-import Carousel from '../components/Carousel.svelte';
+import VideoPlayer from '../components/VideoPlayer.svelte';
 import '../styles/global.css';
 ---
 
@@ -24,6 +24,10 @@ import '../styles/global.css';
         DataPup
       </h1>
 
+      <div class="recognition-tagline animate-fade-in">
+        <span>Officially recognized by ClickHouse</span>
+      </div>
+
       <p class="hero-tagline animate-fade-in">
         The database client that doesn't bite
       </p>
@@ -46,8 +50,14 @@ import '../styles/global.css';
         <span class="badge-icon">👨‍💻</span>
         <span>Built by engineers from Tesla, Meta, Microsoft & Amazon</span>
       </div>
+      
+      <a href="https://clickhouse.com/docs/interfaces/third-party/gui#datapup" target="_blank" rel="noopener noreferrer" class="clickhouse-badge glass animate-fade-in clickable-badge">
+        <img src="/images/clickhouse-logo.svg" alt="ClickHouse" class="clickhouse-small-logo" />
+        <span>Featured on ClickHouse.com</span>
+        <span class="external-link-icon">↗</span>
+      </a>
   </div>
-  <Carousel client:load />
+  <VideoPlayer client:load />
 </section>
 
 <style>
@@ -274,10 +284,28 @@ import '../styles/global.css';
 
   .hero-badge { animation-delay: 0.1s; }
   .hero-title { animation-delay: 0.2s; }
+  .recognition-tagline { animation-delay: 0.25s; }
   .hero-tagline { animation-delay: 0.3s; }
   .hero-description { animation-delay: 0.4s; }
   .hero-cta { animation-delay: 0.5s; }
   .credentials-badge { animation-delay: 0.6s; }
+  .clickhouse-badge { animation-delay: 0.65s; }
+
+  .recognition-tagline {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0.25rem 0 0.5rem 0;
+    color: var(--color-text-secondary);
+    opacity: 0.9;
+  }
+
+  .clickhouse-logo {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+  }
 
   .credentials-badge {
     display: inline-flex;
@@ -290,18 +318,147 @@ import '../styles/global.css';
     margin-top: 2rem;
   }
 
-  @media (max-width: 768px) {
-    .hero {
-      padding: 5.5rem 1rem 3rem;
+  .clickhouse-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-left: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .clickable-badge {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .clickable-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(170, 178, 255, 0.2);
+  }
+
+  .external-link-icon {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-left: 0.25rem;
+  }
+
+  .clickhouse-small-logo {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+  }
+
+  /* Tablet styles */
+  @media (max-width: 1200px) {
+    .hero-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
     }
 
     .hero-content {
-      text-align: left;
+      max-width: 100%;
+      text-align: center;
+      margin-top: 2vh;
+    }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 1rem 2rem;
+    }
+
+    .hero-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .hero-content {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      max-width: 100%;
     }
 
     .hero-cta {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      width: 100%;
+    }
+
+    .btn-large {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+
+    .recognition-tagline {
+      font-size: 0.85rem;
+    }
+
+    .clickhouse-logo {
+      width: 16px;
+      height: 16px;
+    }
+
+    .credentials-badge {
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .clickhouse-badge {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .clickhouse-small-logo {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  /* Small mobile styles */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 3rem 0.5rem 1.5rem;
+    }
+
+    .hero-wrapper {
+      gap: 1.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 12vw, 3rem);
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+    }
+
+    .hero-description {
+      font-size: 0.9rem;
     }
   }
 </style>
