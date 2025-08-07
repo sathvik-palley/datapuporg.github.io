@@ -29,11 +29,11 @@ import '../styles/global.css';
       </div>
 
       <p class="hero-tagline animate-fade-in">
-        The database client that doesn't bite
+        The universal database client that doesn't bite
       </p>
 
       <p class="hero-description animate-fade-in">
-        Beautiful, fast, and intuitive database client for <strong>ClickHouse</strong>. 
+        Beautiful, fast, and intuitive database client for <strong>ClickHouse</strong> and <strong>PostgreSQL</strong>. 
         Built by engineers who understand what developers need.
       </p>
 
@@ -43,6 +43,9 @@ import '../styles/global.css';
         </a>
         <a href="https://github.com/DataPupOrg/DataPup/blob/main/CONTRIBUTING.md" class="btn btn-secondary btn-large">
           <span class="btn-icon">🤝</span> Contribute
+        </a>
+        <a href="https://discord.gg/39Jg7sW2" target="_blank" rel="noopener noreferrer" class="btn btn-discord btn-large">
+          <span class="btn-icon">💬</span> Join Discord
         </a>
       </div>
 
@@ -56,6 +59,7 @@ import '../styles/global.css';
         <span>Featured on ClickHouse.com</span>
         <span class="external-link-icon">↗</span>
       </a>
+
   </div>
   <VideoPlayer client:load />
 </section>
@@ -239,6 +243,17 @@ import '../styles/global.css';
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 4px 24px rgba(80, 90, 180, 0.18);
   }
+  .btn-discord.btn-large {
+    background: linear-gradient(90deg, #5865F2, #7289DA);
+    color: #fff;
+    border: none;
+  }
+  .btn-discord.btn-large:hover {
+    background: linear-gradient(90deg, #4752C4, #5865F2);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 24px rgba(88, 101, 242, 0.25);
+  }
   .btn-icon {
     font-size: 1.2em;
     display: flex;
@@ -290,6 +305,7 @@ import '../styles/global.css';
   .hero-cta { animation-delay: 0.5s; }
   .credentials-badge { animation-delay: 0.6s; }
   .clickhouse-badge { animation-delay: 0.65s; }
+  .database-support-badge { animation-delay: 0.7s; }
 
   .recognition-tagline {
     display: inline-flex;
@@ -352,6 +368,18 @@ import '../styles/global.css';
     width: 16px;
     height: 16px;
     filter: brightness(0) invert(1);
+  }
+
+  .database-support-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-left: 0;
   }
 
   /* Tablet styles */
@@ -435,6 +463,13 @@ import '../styles/global.css';
     .clickhouse-small-logo {
       width: 14px;
       height: 14px;
+    }
+
+    .database-support-badge {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+      text-align: center;
+      max-width: 100%;
     }
   }
 
